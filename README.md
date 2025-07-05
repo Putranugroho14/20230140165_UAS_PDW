@@ -15,7 +15,9 @@
 8. Mahasiswa - Detail Praktikum (Pengumpulan Laporan - Not Graded)
 ![image](https://github.com/user-attachments/assets/ffc89e9e-333e-4f46-9ede-222e2a59d4eb)
 ![image](https://github.com/user-attachments/assets/27264558-916d-449d-8164-3f686b9b6bae)
-
+9. Mahasiswa - Detail Praktikum (Perbarui Laporan)
+![image](https://github.com/user-attachments/assets/16685a71-5fb2-4bd0-8076-83516f91cfec)
+![image](https://github.com/user-attachments/assets/5b84175e-0657-4108-b834-70104eae986d)
 10. Dashboard Asisten
 ![image](https://github.com/user-attachments/assets/e3d7764d-fc1d-4298-b203-44bb3859d4ac)
 11. Asisten - Manajemen Mata Praktikum
