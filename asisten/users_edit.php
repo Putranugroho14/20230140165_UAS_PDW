@@ -80,8 +80,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $user_data) {
             $param_values[] = $id_to_update;
 
             $stmt_update = $conn->prepare($update_sql);
-            // Gunakan call_user_func_array untuk bind_param karena jumlah parameter dinamis
-            call_user_func_array([$stmt_update, 'bind_param'], array_merge([$params], $param_values));
+
+            // Perbaikan untuk Warning: mysqli_stmt::bind_param(): Argument must be passed by reference
+            // Membuat array references dari $param_values
+            $bind_params = [];
+            $bind_params[] = $params; // String tipe parameter adalah argumen pertama
+            foreach ($param_values as $key => $value) {
+                $bind_params[] = &$param_values[$key]; // Melewatkan setiap nilai sebagai reference
+            }
+            
+            call_user_func_array([$stmt_update, 'bind_param'], $bind_params);
             
             if ($stmt_update->execute()) {
                 $message = "Pengguna berhasil diperbarui!";
@@ -101,7 +109,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $user_data) {
 }
 $conn->close();
 ?>
-
 
 <?php if ($message): ?>
     <div class="p-4 mb-4 text-sm border rounded-lg <?php echo $messageType == 'success' ? 'bg-green-600 border-green-500 text-white' : 'bg-red-600 border-red-500 text-white'; ?> shadow-md" role="alert">

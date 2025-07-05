@@ -79,8 +79,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $praktikum_data) {
 $conn->close();
 ?>
 
-<h1 class="text-3xl font-bold text-gray-100 mb-6">Edit Mata Praktikum</h1>
-
 <?php if ($message): ?>
     <div class="p-4 mb-4 text-sm border rounded-lg <?php echo $messageType == 'success' ? 'bg-green-600 border-green-500 text-white' : 'bg-red-600 border-red-500 text-white'; ?> shadow-md" role="alert">
         <?php echo $message; ?>

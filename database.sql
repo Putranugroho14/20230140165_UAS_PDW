@@ -1,5 +1,4 @@
--- Hapus tabel jika sudah ada untuk menghindari error saat import ulang
-DROP TABLE IF EXISTS `users`;
+
 CREATE TABLE `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nama` varchar(100) NOT NULL,
@@ -11,8 +10,6 @@ CREATE TABLE `users` (
   UNIQUE KEY `email` (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Hapus tabel jika sudah ada untuk menghindari error saat import ulang
-DROP TABLE IF EXISTS `mata_praktikum`;
 CREATE TABLE `mata_praktikum` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `nama_praktikum` VARCHAR(255) NOT NULL,
@@ -28,8 +25,6 @@ INSERT INTO `mata_praktikum` (`nama_praktikum`, `deskripsi`, `kode_praktikum`) V
 ('Jaringan Komputer Lanjut', 'Membahas konsep dan implementasi jaringan komputer tingkat lanjut.', 'JKL002'),
 ('Basis Data Lanjutan', 'Pendalaman materi basis data, termasuk optimasi query dan administrasi database.', 'BDL003');
 
--- Hapus tabel jika sudah ada untuk menghindari error saat import ulang
-DROP TABLE IF EXISTS `registrasi_praktikum`;
 CREATE TABLE `registrasi_praktikum` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `user_id` INT(11) NOT NULL,
@@ -42,8 +37,6 @@ CREATE TABLE `registrasi_praktikum` (
   FOREIGN KEY (`praktikum_id`) REFERENCES `mata_praktikum`(`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Hapus tabel jika sudah ada untuk menghindari error saat import ulang
-DROP TABLE IF EXISTS `modul_praktikum`;
 CREATE TABLE `modul_praktikum` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `praktikum_id` INT(11) NOT NULL,
@@ -55,8 +48,7 @@ CREATE TABLE `modul_praktikum` (
   FOREIGN KEY (`praktikum_id`) REFERENCES `mata_praktikum`(`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Hapus tabel jika sudah ada untuk menghindari error saat import ulang
-DROP TABLE IF EXISTS `laporan_praktikum`;
+
 CREATE TABLE `laporan_praktikum` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `modul_id` INT(11) NOT NULL,
